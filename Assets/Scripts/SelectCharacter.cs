@@ -20,8 +20,6 @@ public class SelectCharacter : MonoBehaviour
     private bool isPlayButtonClicked = false;
     private float gameCount = 5f;
 
-    public static string CharacterName;
-
     private void Update()
     {
         if (isPlayButtonClicked)
@@ -40,7 +38,7 @@ public class SelectCharacter : MonoBehaviour
     {
         GameStart.SetActive(true);
         isPlayButtonClicked = true;
-        CharacterName = Characters[charIndex].name;
+        GameManager.Instance.CharacterName = CharacterInfos[charIndex].Name;
     }
 
     private void Start()
