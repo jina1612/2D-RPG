@@ -16,6 +16,9 @@ public class Character : MonoBehaviour
     private bool justAttack, justJump;
 
     private bool isFloor;
+    private bool isLadder;
+    private bool isClimbing;
+    private float inputVertical;
 
     public GameObject AttackObj;
     public float AttackSpeed = 3f;
@@ -33,6 +36,7 @@ public class Character : MonoBehaviour
         AttackCheck();
         JumpCheck();
         Move();
+        ClimbingCheak();
     }
 
     private void AttackCheck()
@@ -47,6 +51,29 @@ public class Character : MonoBehaviour
     {
         Jump();
         Attack();
+        Climbing();
+    }
+
+    private void ClimbingCheak()
+    {
+        inputVertical = Input.GetAxis("Vertical");
+        if (isLadder && Mathf.Abs(inputVertical) > 0)
+        {
+            isClimbing = true;
+        }
+    }
+
+    private void Climbing()
+    {
+        if (isClimbing)
+        {
+            rigidbody2d.gravityScale = 0f;
+            rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, inputVertical * Speed);
+        }else
+        {
+            rigidbody2d.gravityScale = 1f;
+        }
+
     }
     private void Move()
     {
@@ -111,7 +138,7 @@ public class Character : MonoBehaviour
             rigidbody2d.AddForce(Vector2.up * JumpPower, ForceMode2D.Impulse);
             animator.SetTrigger("Jump");
             audioSource.PlayOneShot(JumpClip);
-        }   
+        }
     }
 
     private void Attack()
@@ -123,7 +150,7 @@ public class Character : MonoBehaviour
             animator.SetTrigger("Attack");
             audioSource.PlayOneShot(AttackClip);
 
-            if (gameObject.name == "Warrior")
+            if (gameObject.name == "WarriorClone")
             {
                 AttackObj.SetActive(true);
                 Invoke("SetAttackObjInactive", 0.5f);
@@ -149,5 +176,22 @@ public class Character : MonoBehaviour
     {
         AttackObj.SetActive(false);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Ladder")
+        {
+            isLadder = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Ladder")
+        {
+            isLadder = false;
+            isClimbing = false;
+        }
+    }
 }
+
 
