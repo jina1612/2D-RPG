@@ -2228,6 +2228,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3754011598981880522, guid: dab71d5a1f274fc4186ce2f490ac3a4e, type: 3}
     - target: {fileID: 3139531693443644003, guid: 39f630f41862a0543b47fa2066c8739b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3139531693443644003, guid: 39f630f41862a0543b47fa2066c8739b, type: 3}
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
