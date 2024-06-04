@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     public float PlayerHP = 100f; //체력
     public float PlayerExp = 1f; //경험치
+    public int coin = 0;
+    private GameObject player;
 
 
     private void Awake()
@@ -30,4 +32,12 @@ public class GameManager : MonoBehaviour
     {
         UserID = PlayerPrefs.GetString("ID");
     }
+
+    public GameObject SpawnPlayer(Transform spawnPos)
+    {
+        GameObject playerPrefab = Resources.Load<GameObject>("Characters/" + CharacterName);
+        player = Instantiate(playerPrefab, spawnPos.position, spawnPos.rotation);
+
+        return player;
+    }    
 }

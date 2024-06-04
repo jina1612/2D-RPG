@@ -47,6 +47,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 373a15215765ce446a4a47efe29b127d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MonsterHP: 30
+  MpnsterDamage: 2
+  MonsterExp: 3
+  MoveSpeed: 3
+  ItemObj:
+  - {fileID: 3734216602222575063, guid: 680227f88ee716546b34d35e872a6ca3, type: 3}
+  - {fileID: 3754011598981880522, guid: dab71d5a1f274fc4186ce2f490ac3a4e, type: 3}
 --- !u!212 &3139531693443644003
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -87,7 +94,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -7008412969330441016, guid: ce3326307819d6e4497038e63e070108, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

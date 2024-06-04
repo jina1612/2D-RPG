@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Monster : MonoBehaviour
@@ -69,13 +70,16 @@ public class Monster : MonoBehaviour
         MonsterAnimator.SetTrigger("Die");
         GameManager.Instance.PlayerExp += MonsterExp;
 
-        int itemRandom = Random.Range(0, ItemObj.Length * 2);
-        if (itemRandom <= ItemObj.Length)
-        {
-            Instantiate(ItemObj[itemRandom], new Vector3(transform.position.x, transform. position.y, 0), Quaternion.identity);
-        }
-
         GetComponent<Collider2D>().enabled = false;
         Destroy(gameObject, 1.5f); //Die 애니메이션 재생 시간 보장
+    }
+
+    private void OnDestroy()
+    {
+        int itemRandom = Random.Range(0, ItemObj.Length);
+        if (itemRandom <= ItemObj.Length)
+        {
+            Instantiate(ItemObj[itemRandom], new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
+        }
     }
 }
