@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 9073478833316844244}
   - component: {fileID: 4778085525063961694}
   - component: {fileID: 2149835305523427405}
-  - component: {fileID: 2722040108006289401}
   m_Layer: 0
   m_Name: AttackObj
   m_TagString: Attack
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -41,7 +40,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5751002484409376441}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -92,33 +91,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDamage: 5
---- !u!50 &2722040108006289401
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5751002484409376441}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &8822132480572398306
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +172,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: -7105675749794256429, guid: ae72133dacba6ec4eb33ecde48f50e56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.69, y: 0.44}
@@ -262,7 +234,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07484921, y: -0.053891417}
+  m_Offset: {x: -0.08150765, y: -0.05389142}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -273,7 +245,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.13910995, y: 0.33221716}
+  m_Size: {x: 0.14247665, y: 0.33221716}
   m_EdgeRadius: 0
 --- !u!50 &24087351736282270
 Rigidbody2D:
@@ -316,7 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   JumpClip: {fileID: 8300000, guid: 0ef89314160cb5340a5109103fc32cd2, type: 3}
   Speed: 4
-  JumpPower: 6
+  JumpPower: 7
   AttackClip: {fileID: 8300000, guid: e006fe48c0afffa4db37b3f54885d179, type: 3}
   AttackObj: {fileID: 5751002484409376441}
   AttackSpeed: 3
