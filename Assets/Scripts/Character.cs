@@ -194,6 +194,29 @@ public class Character : MonoBehaviour
             isClimbing = false;
         }
     }
+    
+    private int coinCount = 0; // 코인 개수를 저장할 변수
+
+    // 코인을 먹었을 때 호출되는 함수
+    public void CollectCoin()
+    {
+        coinCount++; // 코인 개수 증가
+        Debug.Log("코인을 먹었습니다! 현재 코인 개수: " + coinCount);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        // 충돌한 상대가 코인인 경우
+        if (other.CompareTag("Coin"))
+        {
+            // 코인을 먹음
+            CollectCoin();
+
+            // 코인 아이템 비활성화 (선택사항)
+            other.gameObject.SetActive(false);
+        }
+    }
 }
+
 
 

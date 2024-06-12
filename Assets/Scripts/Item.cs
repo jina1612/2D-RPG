@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Item : MonoBehaviour
@@ -20,6 +21,18 @@ public class Item : MonoBehaviour
             {
                 GameManager.Instance.PlayerHP += 10;
                 Debug.Log("Player Coin : " + GameManager.Instance.PlayerHP);
+                Destroy(gameObject);
+            }
+            else if (gameObject.tag == "Speed")
+            {
+                GameManager.Instance.player.GetComponent<Character>().Speed += 10;
+                Debug.Log("Player Speed : " + GameManager.Instance.player.GetComponent<Character>().Speed);
+                Destroy(gameObject);
+            }
+            else if (gameObject.tag == "Damage")
+            {
+                GameManager.Instance.player.GetComponent<Character>().AttackObj.GetComponent<Attack>().AttackDamage += 5;
+                Debug.Log("Player Attack Damage : " + GameManager.Instance.player.GetComponent<Character>().AttackObj.GetComponent<Attack>().AttackDamage);
                 Destroy(gameObject);
             }
         }

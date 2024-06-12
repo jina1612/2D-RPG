@@ -28,7 +28,6 @@ public class StartManager : MonoBehaviour
         PlayerPrefs.SetString("ID", MemberShipID.text);
         PlayerPrefs.SetString("PW", MemberShipPW.text);
         PlayerPrefs.SetString("FIND", MemberShipFind.text);
-
         MembershipUI.SetActive(false);
         Debug.Log($"가입완료 ID :{PlayerPrefs.GetString("ID")}, PW:{PlayerPrefs.GetString("PW")}, FIND:{PlayerPrefs.GetString("FIND")}");
     }

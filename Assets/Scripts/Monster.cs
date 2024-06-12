@@ -71,14 +71,14 @@ public class Monster : MonoBehaviour
         GameManager.Instance.PlayerExp += MonsterExp;
 
         GetComponent<Collider2D>().enabled = false;
-        Invoke("CreateItem", 1.5f);
+        Invoke("CreatItem", 1.5f);
         Destroy(gameObject, 1.55f); //Die 애니메이션 재생 시간 보장
     }
 
     private void CreatItem()
     {
         int itemRandom = Random.Range(0, ItemObj.Length);
-        if (itemRandom <= ItemObj.Length)
+        if (itemRandom < ItemObj.Length)
         {
             Instantiate(ItemObj[itemRandom], new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
         }

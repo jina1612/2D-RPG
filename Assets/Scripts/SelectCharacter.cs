@@ -73,6 +73,8 @@ public class SelectCharacter : MonoBehaviour
 
     private void SetPanelInfo()
     {
+        Debug.Log("SetPanelInfo1. charinfo.index : " + CharacterInfos[charIndex]);
+        Debug.Log("SetPanelInfo1. nameText : " + NameTxt);
         NameTxt.text = CharacterInfos[charIndex].Name;
         FeatureTxt.text = CharacterInfos[charIndex].Feature;
         CharImage.sprite = Characters[charIndex].GetComponent<SpriteRenderer>().sprite;

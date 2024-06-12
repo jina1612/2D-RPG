@@ -1,4 +1,4 @@
-using UnityEditor.Tilemaps;
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public float PlayerHP = 100f; //체력
     public float PlayerExp = 1f; //경험치
     public int coin = 0;
-    private GameObject player;
+    public GameObject player;
 
 
     private void Awake()
@@ -24,13 +24,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        DontDestroyOnLoad(Instance);
-    }
-
-    private void Start()
-    {
         UserID = PlayerPrefs.GetString("ID");
+        DontDestroyOnLoad(Instance);
     }
 
     public GameObject SpawnPlayer(Transform spawnPos)
@@ -39,5 +34,10 @@ public class GameManager : MonoBehaviour
         player = Instantiate(playerPrefab, spawnPos.position, spawnPos.rotation);
 
         return player;
-    }    
+    }
+
+    internal GameObject SpawnPlayer(object transform)
+    {
+        throw new NotImplementedException();
+    }
 }
