@@ -625,7 +625,8 @@ MonoBehaviour:
   CharacterImg: {fileID: 667064889}
   IdText: {fileID: 1991290367}
   HpSlider: {fileID: 1258185194}
-  spawnPos: {fileID: 1643386704}
+  MpSlider: {fileID: 0}
+  ExpSlider: {fileID: 0}
 --- !u!1 &346555655
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,10 +994,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3401669321597390522, guid: 097671633d59811478e6a753bd21f82d, type: 3}
-      propertyPath: spawnPos
-      value: 
-      objectReference: {fileID: 1643386704}
     - target: {fileID: 3834626337781663890, guid: 097671633d59811478e6a753bd21f82d, type: 3}
       propertyPath: m_Name
       value: PlayerUICanvas
@@ -3708,8 +3705,10 @@ MonoBehaviour:
   CharacterName: Archer
   UserID: test
   PlayerHP: 100
+  PlayerMP: 100
   PlayerExp: 1
-  coin: 0
+  PlayerDef: 1
+  Coin: 0
   player: {fileID: 0}
 --- !u!4 &1645678105
 Transform:

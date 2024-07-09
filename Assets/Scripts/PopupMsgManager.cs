@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,7 +23,7 @@ public class PopupMsgManager : MonoBehaviour
     public void ShowPopupMessage(string message)
     {
         Panel.SetActive(true);
-       popupText.text = (message);
+        popupText.text = (message);
         StartCoroutine(HideMessageAfterDelay());
 
     }
