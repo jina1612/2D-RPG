@@ -1,6 +1,10 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+
+
 
 public class SelectCharacter : MonoBehaviour
 {
@@ -25,7 +29,7 @@ public class SelectCharacter : MonoBehaviour
         if (isPlayButtonClicked)
         {
             gameCount -= Time.deltaTime;
-            if (gameCount <= 0 )
+            if (gameCount <= 0)
             {
                 SceneManager.LoadScene("MainScene");
             }
@@ -38,9 +42,9 @@ public class SelectCharacter : MonoBehaviour
     {
         GameStart.SetActive(true);
         isPlayButtonClicked = true;
-        GameManager.Instance.CharacterName = CharacterInfos[charIndex].Name;
+        Define.Player player = (Define.Player)Enum.Parse(typeof(Define.Player), Characters[charIndex].name);
+        GameManager.Instance.SelectedPlayer = player;
     }
-
     private void Start()
     {
         SetPanelInfo();

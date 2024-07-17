@@ -51,7 +51,7 @@ public class Monster : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             MonsterAnimator.SetTrigger("Attack");
-            GameManager.Instance.PlayerHP -= MpnsterDamage;
+            GameManager.Instance.PlayerStat.HP -= MpnsterDamage;
         }
         if(collision.gameObject.tag == "Attack")
         {
@@ -68,7 +68,7 @@ public class Monster : MonoBehaviour
     {
         isDie = true;
         MonsterAnimator.SetTrigger("Die");
-        GameManager.Instance.PlayerExp += MonsterExp;
+        GameManager.Instance.PlayerStat.Exp += MonsterExp;
 
         GetComponent<Collider2D>().enabled = false;
         Destroy(gameObject, 1.5f); //Die 애니메이션 재생 시간 보장

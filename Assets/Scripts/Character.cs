@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -6,7 +8,7 @@ public class Character : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rigidbody2d;
     private AudioSource audioSource;
-
+    
     public AudioClip JumpClip;
 
     public float Speed = 4f;
@@ -14,6 +16,7 @@ public class Character : MonoBehaviour
     public AudioClip AttackClip;
 
     private bool justAttack, justJump;
+    private bool faceRight = true;
 
     private bool isFloor;
     private bool isLadder;
@@ -82,15 +85,26 @@ public class Character : MonoBehaviour
         {
             transform.Translate(Vector3.right * Speed * Time.deltaTime);
             animator.SetBool("Move", true);
+            if (!faceRight) Flip();
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(Vector3.left * Speed * Time.deltaTime);
             animator.SetBool("Move", true);
+            if (!faceRight) Flip();
         }
         else
         {
             animator.SetBool("Move", false);
+        }
+
+         void Flip()
+        {
+            faceRight = !faceRight;
+
+            Vector3 localScale = transform.localScale;
+            localScale.x *= 1;
+            transform.localScale = localScale;
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -157,7 +171,7 @@ public class Character : MonoBehaviour
             }
             else
             {
-                if (spriteRenderer.flipX)
+                if (!faceRight)
                 {
                     GameObject obj = Instantiate(AttackObj, transform.position, Quaternion.Euler(0f, 180f, 0f));
                     obj.GetComponent<Rigidbody2D>().AddForce(Vector2.left * AttackSpeed, ForceMode2D.Impulse);
